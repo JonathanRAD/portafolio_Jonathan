@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importar fuente Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- VARIABLES GLOBALES (Tema "Deep Space") --- */
+:root {
+  /* Fondo principal: Un azul muy oscuro y elegante (Slate 950) */
+  --bg-main: #020617; 
+  
+  /* Color de las tarjetas (Slate 900 con transparencia) */
+  --bg-card: rgba(15, 23, 42, 0.6);
+  --border-card: rgba(148, 163, 184, 0.1); /* Borde sutil */
+
+  /* Colores de Acento (Más suaves y profesionales) */
+  --primary: #38bdf8;   /* Sky 400 (Azul cián moderno) */
+  --secondary: #818cf8; /* Indigo 400 (Violeta suave) */
+  --accent: #2dd4bf;    /* Teal 400 (Verde agua para detalles) */
+
+  /* Textos */
+  --text-main: #f8fafc;  /* Casi blanco */
+  --text-muted: #94a3b8; /* Gris azulado para párrafos */
+}
+
+/* --- ESTILOS BASE --- */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%), 
+    radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08), transparent 25%);
+  background-attachment: fixed; /* El fondo no se mueve al hacer scroll */
+}
+
+/* Scrollbar moderna */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* Ajustes de Bootstrap */
+a { text-decoration: none; }
+main { padding-top: 0; }

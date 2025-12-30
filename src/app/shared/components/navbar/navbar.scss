@@ -1,0 +1,17 @@
+.glass-nav {
+  background: rgba(15, 23, 42, 0.8); /* Slate 900 con transparencia */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #60a5fa !important; /* Azul brillante */
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+}

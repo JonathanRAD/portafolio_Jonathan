@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
+// src/app/app.ts
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Navbar } from './shared/components/navbar/navbar'; // Importamos tu componente
+import { Footer } from './shared/components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, Navbar, Footer], // Agregamos los componentes al array
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss'] // Asegúrate de tener este archivo aunque esté vacío por ahora
 })
 export class App {
-  protected readonly title = signal('mi-portafolio');
+  title = 'mi-portafolio';
 }

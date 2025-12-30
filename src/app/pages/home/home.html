@@ -1,0 +1,111 @@
+<section class="hero-section d-flex align-items-center position-relative overflow-hidden">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container z-index-1">
+    <div class="row align-items-center">
+      
+      <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0 animate-left">
+        <span class="badge glass-badge mb-3">👋 Disponible para trabajar</span>
+        <h1 class="display-3 fw-bold text-white mb-3">
+          Hola, soy <span class="text-gradient">Jonathan</span>
+        </h1>
+        <h2 class="h3 text-secondary mb-4">
+          Ingeniero de Software Full Stack
+        </h2>
+        <p class="lead text-gray-400 mb-5 pe-lg-5">
+          Especializado en crear arquitecturas robustas con <strong class="text-primary">Java/Spring</strong> y experiencias de usuario fluidas con <strong class="text-danger">Angular</strong>. Transformo código complejo en soluciones simples.
+        </p>
+        
+        <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+          <button class="btn btn-primary btn-lg rounded-pill px-5 glow-effect" (click)="setFilter('all')">
+            Ver Proyectos <i class="bi bi-arrow-down-short"></i>
+          </button>
+          <a href="https://github.com/JonathanRAD" target="_blank" class="btn btn-outline-light btn-lg rounded-circle">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light btn-lg rounded-circle">
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-5 text-center animate-right">
+        <div class="profile-wrapper">
+          <img src="assets/me.png" alt="Jonathan Profile" class="img-fluid profile-img">
+          
+          <div class="floating-card glass-card">
+            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+            <div>
+              <small class="d-block text-muted">Experiencia</small>
+              <strong>Full Stack Dev</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-darker">
+  <div class="container">
+    <p class="text-center text-uppercase text-secondary fw-bold small tracking-widest mb-4">Tecnologías que domino</p>
+    
+    <div class="d-flex justify-content-center flex-wrap gap-4">
+      @for (skill of skills; track skill.name) {
+        <div class="skill-card glass-card d-flex align-items-center gap-2 px-4 py-3" 
+             [style.border-color]="skill.color + '40'">
+          <i [class]="skill.icon + ' fs-4'" [style.color]="skill.color"></i>
+          <span class="fw-bold text-white">{{ skill.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="container py-5" id="proyectos">
+  
+  <div class="text-center mb-5 animate-up">
+    <h2 class="display-5 fw-bold text-white">Proyectos Destacados</h2>
+    <div class="divider mx-auto"></div>
+  </div>
+
+  <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
+    <button (click)="setFilter('all')" 
+            [class.active]="currentFilter() === 'all'"
+            class="btn btn-glass rounded-pill px-4">
+      Todos
+    </button>
+    <button (click)="setFilter('fullstack')" 
+            [class.active]="currentFilter() === 'fullstack'"
+            class="btn btn-glass rounded-pill px-4">
+      Full Stack
+    </button>
+    <button (click)="setFilter('backend')" 
+            [class.active]="currentFilter() === 'backend'"
+            class="btn btn-glass rounded-pill px-4">
+      Backend
+    </button>
+    <button (click)="setFilter('frontend')" 
+            [class.active]="currentFilter() === 'frontend'"
+            class="btn btn-glass rounded-pill px-4">
+      Frontend
+    </button>
+  </div>
+
+  <div class="row g-4">
+    @for (project of filteredProjects(); track project.id) {
+      <div class="col-md-6 col-lg-4 animate-up">
+        <app-project-card [project]="project"></app-project-card>
+      </div>
+    } @empty {
+      <div class="col-12 text-center py-5">
+        <div class="glass-card p-5 d-inline-block">
+          <i class="bi bi-folder-x fs-1 text-muted mb-3 d-block"></i>
+          <p class="text-secondary mb-0">No hay proyectos en esta categoría aún.</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>

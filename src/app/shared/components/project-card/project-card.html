@@ -1,27 +1,40 @@
-<div class="glass-card h-100 d-flex flex-column">
-  <div class="img-wrapper">
-    <img [src]="project().imageUrl" [alt]="project().title" class="card-img-top">
-    <div class="overlay">
+<div class="card-wrapper">
+  
+  <div class="image-container">
+    <img [src]="project().imageUrl" [alt]="project().title" class="project-img">
+    
+    <div class="overlay"></div>
+
+    <div class="action-buttons">
       @if (project().githubUrl) {
-        <a [href]="project().githubUrl" target="_blank" class="btn btn-sm btn-light">
-          <i class="bi bi-github"></i> Code
+        <a [href]="project().githubUrl" target="_blank" class="btn-icon github" title="Ver Código">
+          <i class="bi bi-github"></i>
+        </a>
+      }
+      @if (project().demoUrl) {
+        <a [href]="project().demoUrl" target="_blank" class="btn-icon demo" title="Ver Demo">
+          <i class="bi bi-eye-fill"></i>
         </a>
       }
     </div>
   </div>
-  
-  <div class="card-body p-4 flex-grow-1">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <h5 class="card-title text-gradient fw-bold mb-0">{{ project().title }}</h5>
-      <span class="badge bg-dark border border-secondary">{{ project().category | uppercase }}</span>
+
+  <div class="content p-4">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+      <h3 class="card-title">{{ project().title }}</h3>
+      
+      <span class="category-badge {{ project().category }}">
+        {{ project().category | uppercase }}
+      </span>
     </div>
-    
-    <p class="card-text text-secondary small">{{ project().description }}</p>
-    
-    <div class="tech-stack mt-3">
+
+    <p class="description">{{ project().description }}</p>
+
+    <div class="tech-stack mt-auto pt-3 border-top border-secondary border-opacity-10">
       @for (tech of project().technologies; track tech) {
-        <span class="tech-badge">{{ tech }}</span>
+        <span class="tech-pill">{{ tech }}</span>
       }
     </div>
   </div>
+
 </div>

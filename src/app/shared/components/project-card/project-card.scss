@@ -1,0 +1,156 @@
+/* --- CONTENEDOR PRINCIPAL (Efecto Cristal Base) --- */
+.card-wrapper {
+  background: rgba(30, 41, 59, 0.4); /* Fondo semi-transparente */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  /* TRANSICIÓN MAESTRA: Suave y elástica */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- ESTADO HOVER (Cuando pasas el mouse) --- */
+.card-wrapper:hover {
+  transform: translateY(-12px) scale(1.02); /* Levita y crece */
+  background: rgba(30, 41, 59, 0.6); /* Se oscurece un poco para legibilidad */
+  border-color: var(--primary); /* El borde se pone Cyan */
+  /* Sombra de neón impresionante */
+  box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.25),
+              0 0 0 1px rgba(56, 189, 248, 0.2); 
+}
+
+/* --- IMAGEN Y ZOOM --- */
+.image-container {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease; /* Zoom lento */
+}
+
+/* Zoom al hacer hover en la tarjeta */
+.card-wrapper:hover .project-img {
+  transform: scale(1.15) rotate(2deg); /* Zoom y rotación sutil */
+}
+
+/* Overlay oscuro (Sombra sobre la imagen) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.card-wrapper:hover .overlay {
+  opacity: 0.9; /* Se oscurece más para resaltar los botones */
+}
+
+/* --- BOTONES DE ACCIÓN (Aparecen desde abajo) --- */
+.action-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  z-index: 10;
+  /* Ocultos inicialmente (bajan y desaparecen) */
+  transform: translateY(50px); 
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Aparecen al hover */
+.card-wrapper:hover .action-buttons {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.btn-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+
+.btn-icon:hover {
+  background: var(--primary);
+  color: #0f172a;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--primary);
+}
+
+/* --- TIPOGRAFÍA Y DETALLES --- */
+.card-title {
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0;
+  background: linear-gradient(to right, #fff, #cbd5e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Máximo 3 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Badge de categoría */
+.category-badge {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.category-badge.fullstack { background: rgba(139, 92, 246, 0.2); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
+.category-badge.backend { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.category-badge.frontend { background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+/* Píldoras de tecnología */
+.tech-pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+}
+
+.card-wrapper:hover .tech-pill {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--primary);
+  border-color: rgba(56, 189, 248, 0.2);
+}

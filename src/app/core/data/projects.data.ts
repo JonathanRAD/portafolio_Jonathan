@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     title: 'Sistema de Gestión Clínica',
     description: 'SaaS completo para administración médica con gestión de citas, historias clínicas y facturación.',
     technologies: ['Java 17', 'Spring Boot 3', 'Angular', 'PostgreSQL', 'JWT'],
-    imageUrl: 'assets/projects/clinica-general.webp', // ¡Recuerda subir esta foto!
+    imageUrl: 'clinicageneral.jpeg', // ¡Recuerda subir esta foto!
     category: 'fullstack',
     githubUrl: 'https://github.com/JonathanRAD/Backend-ClinicaGeneral' // Basado en tu usuario
   },
@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
     title: 'API Segura Sector Salud',
     description: 'Backend robusto con arquitectura de microservicios, seguridad OAuth2 y Google Login.',
     technologies: ['Spring Security', 'Docker', 'OAuth2', 'Lombok'],
-    imageUrl: 'assets/projects/backend-api.webp',
+    imageUrl: 'clinicadental.jpeg',
     category: 'backend',
     githubUrl: 'https://github.com/csduentapremium2727-png/Clinica-dental-backend'
   },
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
     title: 'Plataforma E-commerce',
     description: 'Frontend moderno para gestión de pedidos, recargas y reseñas de clientes.',
     technologies: ['Angular', 'Bootstrap 5', 'SCSS', 'RxJS'],
-    imageUrl: 'assets/projects/ecommerce.webp',
+    imageUrl: 'ecommerce.jpeg',
     category: 'frontend',
     githubUrl: 'https://github.com/webprogrammr/Plataformasconfianza-frontend'
   }

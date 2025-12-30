@@ -1,110 +1,161 @@
-<section class="hero-section d-flex align-items-center position-relative overflow-hidden">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-
+<section class="hero-section d-flex align-items-center position-relative overflow-hidden reveal" #revealItem>
   <div class="container z-index-1">
     <div class="row align-items-center">
-      
-      <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0 animate-left">
-        <span class="badge glass-badge mb-3">👋 Disponible para trabajar</span>
+      <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0">
+        <span class="badge glass-badge mb-3 text-white border border-light">🚀 Disponible para proyectos</span>
         <h1 class="display-3 fw-bold text-white mb-3">
-          Hola, soy <span class="text-gradient">Jonathan</span>
+          Jonathan Rujel <br>
+          <span class="text-gradient">Ingeniero de Sistemas</span>
         </h1>
-        <h2 class="h3 text-secondary mb-4">
-          Ingeniero de Software Full Stack
+        <h2 class="h4 text-light mb-4 opacity-75">
+          Especialista en Desarrollo Full Stack & Análisis de Datos
         </h2>
-        <p class="lead text-gray-400 mb-5 pe-lg-5">
-          Especializado en crear arquitecturas robustas con <strong class="text-primary">Java/Spring</strong> y experiencias de usuario fluidas con <strong class="text-danger">Angular</strong>. Transformo código complejo en soluciones simples.
+        <p class="lead text-light opacity-75 mb-5 pe-lg-5">
+          Estudiante de 8vo ciclo enfocado en la transformación digital. Combino desarrollo robusto (Java/Spring) con inteligencia de negocios (Power BI/SQL) para crear soluciones de alto impacto.
         </p>
-        
         <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-          <button class="btn btn-primary btn-lg rounded-pill px-5 glow-effect" (click)="setFilter('all')">
-            Ver Proyectos <i class="bi bi-arrow-down-short"></i>
+          <button class="btn btn-primary btn-lg rounded-pill px-5 shadow-lg fw-bold" (click)="setFilter('all')">
+            Ver Portafolio
           </button>
-          <a href="https://github.com/JonathanRAD" target="_blank" class="btn btn-outline-light btn-lg rounded-circle">
+          <a href="https://github.com/JonathanRAD" target="_blank" class="btn btn-glass btn-lg rounded-circle">
             <i class="bi bi-github"></i>
           </a>
-          <a href="#" class="btn btn-outline-light btn-lg rounded-circle">
-            <i class="bi bi-linkedin"></i>
+          <a href="mailto:rujeljonathan4@gmail.com" class="btn btn-glass btn-lg rounded-circle">
+            <i class="bi bi-envelope-fill"></i>
           </a>
         </div>
       </div>
-
-      <div class="col-lg-5 text-center animate-right">
+      <div class="col-lg-5 text-center">
         <div class="profile-wrapper">
-          <img src="assets/me.png" alt="Jonathan Profile" class="img-fluid profile-img">
-          
+          <img src="me.png" alt="Jonathan Rujel" class="img-fluid profile-img">
           <div class="floating-card glass-card">
-            <i class="bi bi-check-circle-fill text-success fs-4"></i>
-            <div>
-              <small class="d-block text-muted">Experiencia</small>
-              <strong>Full Stack Dev</strong>
+            <i class="bi bi-patch-check-fill text-success fs-4"></i>
+            <div class="text-start ms-2">
+              <small class="d-block text-white opacity-75" style="font-size: 0.7rem;">Certificado en</small>
+              <strong class="text-white">Big Data & AI</strong>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<section class="py-5 bg-darker">
+<section class="container mb-5 reveal" #revealItem>
+  <div class="stats-bar d-flex justify-content-around flex-wrap p-4 align-items-center">
+    @for (stat of stats; track stat.label) {
+      <div class="text-center px-4 py-2">
+        <h2 class="display-5 fw-bold text-gradient mb-0">{{ stat.number }}</h2>
+        <small class="text-uppercase text-white opacity-75 tracking-wide">{{ stat.label }}</small>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="py-5 reveal" #revealItem>
   <div class="container">
-    <p class="text-center text-uppercase text-secondary fw-bold small tracking-widest mb-4">Tecnologías que domino</p>
-    
-    <div class="d-flex justify-content-center flex-wrap gap-4">
-      @for (skill of skills; track skill.name) {
-        <div class="skill-card glass-card d-flex align-items-center gap-2 px-4 py-3" 
-             [style.border-color]="skill.color + '40'">
-          <i [class]="skill.icon + ' fs-4'" [style.color]="skill.color"></i>
-          <span class="fw-bold text-white">{{ skill.name }}</span>
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-white">Habilidades Técnicas</h2>
+      <p class="text-light opacity-75">Soluciones integrales desde la base de datos hasta la interfaz.</p>
+    </div>
+    <div class="row g-4">
+      @for (area of expertise; track area.title) {
+        <div class="col-md-4">
+          <div class="expertise-card p-4 text-center text-lg-start">
+            <div class="icon-box mb-4">
+              <i [class]="area.icon"></i>
+            </div>
+            <h3 class="h4 text-white mb-3">{{ area.title }}</h3>
+            <p class="text-light opacity-75 small mb-4">{{ area.desc }}</p>
+            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
+              @for (tech of area.techs; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
         </div>
       }
     </div>
   </div>
 </section>
 
-<section class="container py-5" id="proyectos">
-  
-  <div class="text-center mb-5 animate-up">
-    <h2 class="display-5 fw-bold text-white">Proyectos Destacados</h2>
-    <div class="divider mx-auto"></div>
+<section class="container py-5 reveal services-section" #revealItem>
+  <div class="text-center mb-5">
+    <span class="badge glass-badge mb-2 text-white border border-light">Freelance & Contratos</span>
+    <h2 class="display-5 fw-bold text-white">Mis Servicios</h2>
+    <p class="text-light opacity-75">Elige la solución, yo pongo la tecnología.</p>
   </div>
 
+  <div class="d-flex flex-column gap-5">
+    @for (service of services; track service.title; let i = $index) {
+      
+      <div class="row align-items-center service-row" [class.flex-row-reverse]="i % 2 !== 0">
+        
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="service-card p-5 h-100 d-flex flex-column position-relative">
+            
+            <div class="service-header d-flex align-items-center gap-3 mb-4">
+              <div class="service-icon-wrapper">
+                <i [class]="service.icon"></i>
+              </div>
+              <h3 class="h3 text-white mb-0">{{ service.title }}</h3>
+            </div>
+            
+            <p class="text-light opacity-75 mb-4 lead">{{ service.desc }}</p>
+
+            <ul class="list-unstyled mb-4">
+              @for (feature of service.features; track feature) {
+                <li class="d-flex align-items-center gap-3 mb-3 text-white">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>{{ feature }}</span>
+                </li>
+              }
+            </ul>
+
+            <a href="https://discord.gg/tuserver" target="_blank" 
+               class="btn btn-primary rounded-pill w-100 fw-bold mt-auto py-3">
+              Cotizar Proyecto
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="tools-showcase p-4 text-center">
+            <p class="text-uppercase text-muted tracking-wide mb-4 small fw-bold">Stack Tecnológico</p>
+            
+            <div class="tools-grid">
+              @for (tool of service.tools; track tool.name) {
+                <div class="tool-box glass-card">
+                  <i [class]="tool.icon + ' tool-icon'"></i>
+                  <span class="tool-name">{{ tool.name }}</span>
+                </div>
+              }
+            </div>
+
+            <div class="connector-line d-none d-lg-block"></div>
+          </div>
+        </div>
+
+      </div>
+      }
+  </div>
+</section>
+
+<section class="container py-5 reveal" #revealItem id="proyectos">
+  <div class="text-center mb-5">
+    <h2 class="display-5 fw-bold text-white">Proyectos Académicos</h2>
+    <div class="divider mx-auto bg-primary opacity-50" style="height: 4px; width: 60px; border-radius: 2px;"></div>
+  </div>
   <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
-    <button (click)="setFilter('all')" 
-            [class.active]="currentFilter() === 'all'"
-            class="btn btn-glass rounded-pill px-4">
-      Todos
-    </button>
-    <button (click)="setFilter('fullstack')" 
-            [class.active]="currentFilter() === 'fullstack'"
-            class="btn btn-glass rounded-pill px-4">
-      Full Stack
-    </button>
-    <button (click)="setFilter('backend')" 
-            [class.active]="currentFilter() === 'backend'"
-            class="btn btn-glass rounded-pill px-4">
-      Backend
-    </button>
-    <button (click)="setFilter('frontend')" 
-            [class.active]="currentFilter() === 'frontend'"
-            class="btn btn-glass rounded-pill px-4">
-      Frontend
-    </button>
+    <button (click)="setFilter('all')" [class.active]="currentFilter() === 'all'" class="btn btn-glass rounded-pill px-4">Todos</button>
+    <button (click)="setFilter('fullstack')" [class.active]="currentFilter() === 'fullstack'" class="btn btn-glass rounded-pill px-4">Full Stack</button>
+    <button (click)="setFilter('backend')" [class.active]="currentFilter() === 'backend'" class="btn btn-glass rounded-pill px-4">Backend</button>
+    <button (click)="setFilter('frontend')" [class.active]="currentFilter() === 'frontend'" class="btn btn-glass rounded-pill px-4">Frontend</button>
   </div>
-
   <div class="row g-4">
     @for (project of filteredProjects(); track project.id) {
-      <div class="col-md-6 col-lg-4 animate-up">
+      <div class="col-md-6 col-lg-4">
         <app-project-card [project]="project"></app-project-card>
-      </div>
-    } @empty {
-      <div class="col-12 text-center py-5">
-        <div class="glass-card p-5 d-inline-block">
-          <i class="bi bi-folder-x fs-1 text-muted mb-3 d-block"></i>
-          <p class="text-secondary mb-0">No hay proyectos en esta categoría aún.</p>
-        </div>
       </div>
     }
   </div>

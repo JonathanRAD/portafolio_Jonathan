@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  technologies: string[]; // Ej: ['Angular', 'Spring Boot']
+  technologies: string[];
   imageUrl: string;
   githubUrl?: string;
   demoUrl?: string;

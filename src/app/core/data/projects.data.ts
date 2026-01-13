@@ -6,9 +6,9 @@ export const PROJECTS: Project[] = [
     title: 'Sistema de Gestión Clínica',
     description: 'SaaS completo para administración médica con gestión de citas, historias clínicas y facturación.',
     technologies: ['Java 17', 'Spring Boot 3', 'Angular', 'PostgreSQL', 'JWT'],
-    imageUrl: 'clinicageneral.jpeg', // ¡Recuerda subir esta foto!
+    imageUrl: 'clinicageneral.jpeg', 
     category: 'fullstack',
-    githubUrl: 'https://github.com/JonathanRAD/Backend-ClinicaGeneral' // Basado en tu usuario
+    githubUrl: 'https://github.com/JonathanRAD/Backend-ClinicaGeneral' 
   },
   {
     id: 'dental-api',
